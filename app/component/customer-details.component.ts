@@ -29,8 +29,6 @@ export class CustomerDetailsComponent {
 
     instantiateFormTemplate() {
         this.templateData = CUSTOMER_META
-        // this.templateData['colSplit'] = ((CUSTOMER_META['templateMeta']['panelCount'] % 3 == 0) ?
-        //     'col-sm-4' : ((CUSTOMER_META['templateMeta']['panelCount'] % 3 == 1) ? 'col-sm-6' : 'col-sm-4'))
     }
 
     onSubmitCustomerDetails(event) {
