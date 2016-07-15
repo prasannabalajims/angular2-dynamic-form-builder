@@ -1,0 +1,30 @@
+<div class="row">
+
+    <form [ngFormModel]="customerDetailsForm" (submit)="onSubmitCustomerDetails($event)">
+
+        <div *ngFor="let subForm of templateData">
+
+            <div class="col-sm-4">
+                <h3> {{subForm['formHeading']}} </h3>
+                <div class="form-group" *ngFor="let property of subForm['properties']">
+                    <div *ngIf="property['inputType']=='text'">
+                        <label>{{property['description']}}</label>
+                        <input class="form-control" id="{{property['key']}}" type="text" ngControl="{{property['key']}}">
+                    </div>
+
+                    <div *ngIf="property['inputType']=='select'">
+                        <label>{{property['description']}}</label>
+                        <select name="{{property['key']}}" id="{{property['key']}}" class="form-control" ngControl="{{property['key']}}">
+                            <option *ngFor="let dropDownValue of property['values']" value="{{dropDownValue}}"> {{dropDownValue}} </option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!customerDetailsForm.valid">Submit</button>
+
+    </form>
+
+</div>
